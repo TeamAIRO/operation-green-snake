@@ -2,22 +2,11 @@
 import cv2
 import sys
 import numpy as np
-import bs4
-import urllib
-from urllib.request import urlopen
-from urllib.parse import urljoin
+from sentinelsat import SentinelAPI
 
-soup = bs4.BeautifulSoup(urlopen("http://www.viewfinderpanoramas.org/dem3.html#alps"))
-links = soup.find_all('a')
-for link in links:
-    try:
-        if "/dem1/N4" in link['href']:
-            url = urljoin("http://www.viewfinderpanoramas.org/", link['href'])
-            filename = link['href'].split('/')[-1]
-            urllib.urlretrieve(url, filename)
-            #break
-    except:
-        pass
+user = 'teamairo' 
+password = 'a1r0-2016' 
+api = SentinelAPI(user, password, 'https://scihub.copernicus.eu/dhus')
     
 if len(sys.argv)!=2:                  ## Check for error in usage syntax
     print("Usage : python display_image.py <image_file>")
