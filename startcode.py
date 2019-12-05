@@ -21,6 +21,6 @@ else:
     else:
         cv2.namedWindow('Display Window')        ## create window for display
         cv2.imshow('Display Window',img)         ## Show image in the window
-        print "size of image: ",img.shape        ## print size of image
+        print ("size of image: ",img.shape)        ## print size of image
         cv2.waitKey(0)                           ## Wait for keystroke
         cv2.destroyAllWindows()                  ## Destroy all windows
