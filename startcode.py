@@ -9,6 +9,7 @@ from urllib.parse import urljoin
 
 soup = bs4.BeautifulSoup(urlopen("http://www.viewfinderpanoramas.org/dem3.html#alps"))
 links = soup.find_all('a')
+print(links)
 for link in links:
     try:
         if "/dem1/N4" in link['href']:
