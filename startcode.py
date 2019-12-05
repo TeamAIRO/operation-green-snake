@@ -14,7 +14,7 @@ if len(sys.argv)!=2:                  ## Check for error in usage syntax
     print("Usage : python display_image.py <image_file>")
 
 else:
-    img = cv2.imread(sys.argv[1],cv2.CV_LOAD_IMAGE_COLOR)  ## Read image file
+    img = cv2.imread(sys.argv[1],cv2.IMREAD_COLOR)  ## Read image file
 
     if (img == None):                      ## Check for invalid input
         print("Could not open or find the image")
