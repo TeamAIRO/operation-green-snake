@@ -17,7 +17,7 @@ for link in links:
             urllib.urlretrieve(url, filename)
             #break
     except:
-        print("I am error")
+        pass
     
 if len(sys.argv)!=2:                  ## Check for error in usage syntax
     print("Usage : python display_image.py <image_file>")
