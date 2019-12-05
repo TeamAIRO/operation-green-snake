@@ -2,7 +2,21 @@
 import cv2
 import sys
 import numpy as np
+import urllib, urllib2, bs4
+from urlparse import urljoin
 
+soup = bs4.BeautifulSoup(urllib2.urlopen("http://www.viewfinderpanoramas.org/dem3.html#alps"))
+links = soup.find_all('a')
+for link in links:
+    try:
+        if "/dem1/N4" in link['href']:
+            url = urljoin("http://www.viewfinderpanoramas.org/", link['href'])
+            filename = link['href'].split('/')[-1]
+            urllib.urlretrieve(url, filename)
+            #break
+    except:
+        pass
+    
 if len(sys.argv)!=2:                  ## Check for error in usage syntax
     print("Usage : python display_image.py <image_file>")
 
