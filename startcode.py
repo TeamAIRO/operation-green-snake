@@ -3,6 +3,7 @@ import cv2
 import sys
 import numpy as np
 import bs4
+import urllib
 from urllib.request import urlopen
 from urllib.parse import urljoin
 
