@@ -9,8 +9,6 @@ from urllib.parse import urljoin
 
 soup = bs4.BeautifulSoup(urlopen("http://www.viewfinderpanoramas.org/dem3.html#alps"))
 links = soup.find_all('a')
-for lin in links:
-    print(lin.get('href'))
 for link in links:
     try:
         if "/dem1/N4" in link['href']:
@@ -19,7 +17,7 @@ for link in links:
             urllib.urlretrieve(url, filename)
             #break
     except:
-        pass
+        print("I am error")
     
 if len(sys.argv)!=2:                  ## Check for error in usage syntax
     print("Usage : python display_image.py <image_file>")
