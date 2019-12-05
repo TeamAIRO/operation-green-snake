@@ -11,7 +11,7 @@ import sys
 import numpy as np
 
 if len(sys.argv)!=2:                  ## Check for error in usage syntax
-    print "Usage : python display_image.py <image_file>"
+    print("Usage : python display_image.py <image_file>")
 
 else:
     img = cv2.imread(sys.argv[1],cv2.CV_LOAD_IMAGE_COLOR)  ## Read image file
