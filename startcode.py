@@ -17,7 +17,7 @@ else:
     img = cv2.imread(sys.argv[1],cv2.CV_LOAD_IMAGE_COLOR)  ## Read image file
 
     if (img == None):                      ## Check for invalid input
-        print "Could not open or find the image"
+        print("Could not open or find the image")
     else:
         cv2.namedWindow('Display Window')        ## create window for display
         cv2.imshow('Display Window',img)         ## Show image in the window
