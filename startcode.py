@@ -16,7 +16,7 @@ if len(sys.argv)!=2:                  ## Check for error in usage syntax
 else:
     img = cv2.imread(sys.argv[1],cv2.IMREAD_COLOR)  ## Read image file
 
-    if (img == None):                      ## Check for invalid input
+    if (img.any() == None):                      ## Check for invalid input
         print("Could not open or find the image")
     else:
         cv2.namedWindow('Display Window')        ## create window for display
