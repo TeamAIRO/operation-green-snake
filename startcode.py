@@ -2,9 +2,6 @@
 import cv2
 import sys
 import numpy as np
-import ee
-
-ee.Initialize()
 
 if len(sys.argv)!=2:                  ## Check for error in usage syntax
     print("Usage : python display_image.py <image_file>")
