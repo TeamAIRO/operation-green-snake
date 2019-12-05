@@ -15,8 +15,7 @@ for link in links:
             url = urljoin("http://www.viewfinderpanoramas.org/", link['href'])
             filename = link['href'].split('/')[-1]
             urllib.urlretrieve(url, filename)
-            #break
-            print("hello")
+            break
     except:
         pass
     
