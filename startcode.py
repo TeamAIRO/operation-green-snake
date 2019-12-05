@@ -4,6 +4,7 @@ import sys
 import numpy as np
 import urllib, urllib2, bs4
 from urlparse import urljoin
+import ssl
 
 soup = bs4.BeautifulSoup(urllib2.urlopen("http://www.viewfinderpanoramas.org/dem3.html#alps"))
 links = soup.find_all('a')
