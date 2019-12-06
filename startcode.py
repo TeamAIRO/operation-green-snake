@@ -3,6 +3,8 @@ import cv2
 import sys
 import numpy as np
 from sentinelsat import SentinelAPI
+import geopandas
+import shapely.geometry
 
 user = 'teamairo' 
 password = 'a1r0-2016' 
