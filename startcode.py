@@ -19,7 +19,8 @@ products = api.query(footprint,
                     )
 
 
-print(list(products.keys())[0])
+product = list(products.keys())[0]
+print(product)
 
     
 #All of this is just printing an image
