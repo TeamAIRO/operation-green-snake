@@ -4,10 +4,12 @@ import sys
 import numpy as np
 from sentinelsat import SentinelAPI
 
+#authenticates with the website
 user = 'teamairo' 
 password = 'a1r0-2016' 
 api = SentinelAPI(user, password, 'https://scihub.copernicus.eu/dhus')
 
+#Gets a point, and asks the website for all the images of that point taken from a certain range of time
 footprint = 'POINT (41.9 12.5)'
 products = api.query(footprint,
                      date = ('20190601', '20190626'),
@@ -16,10 +18,10 @@ products = api.query(footprint,
                      cloudcoverpercentage = (0,10)
                     )
 
-products_sorted = products.sort_values(['cloudcoverpercentage'], ascending=[True])
 
 print(products)
     
+#All of this is just printing an image
 if len(sys.argv)!=2:                  ## Check for error in usage syntax
     print("Usage : python display_image.py <image_file>")
 
