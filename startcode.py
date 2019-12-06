@@ -8,10 +8,12 @@ user = 'teamairo'
 password = 'a1r0-2016' 
 api = SentinelAPI(user, password, 'https://scihub.copernicus.eu/dhus')
 
-products = api.query(footprint = "intersects(41.9000, 12.5000)",
+footprint = 'POINT (41.9 12.5)'
+products = api.query(footprint,
                      date = ('20190601', '20190626'),
                      platformname = 'Sentinel-2',
                      processinglevel = 'Level-2A',
+                     cloudcoverpercentage = (0,10)
                     )
 print(products)
     
