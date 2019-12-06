@@ -19,7 +19,7 @@ products = api.query(footprint,
                     )
 
 
-products.items()
+print(products.items())
     
 #All of this is just printing an image
 if len(sys.argv)!=2:                  ## Check for error in usage syntax
