@@ -15,7 +15,11 @@ products = api.query(footprint,
                      processinglevel = 'Level-2A',
                      cloudcoverpercentage = (0,10)
                     )
-print(products)
+
+products_gdf = api.to_geodataframe(products)
+products_gdf_sorted = products_gdf.sort_values(['cloudcoverpercentage'], ascending=[True])
+
+print(products_gdf_sorted)
     
 if len(sys.argv)!=2:                  ## Check for error in usage syntax
     print("Usage : python display_image.py <image_file>")
