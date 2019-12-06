@@ -20,7 +20,7 @@ products = api.query(footprint,
 
 
 product = list(products.keys())[0]
-print(product)
+api.download(product)
 
     
 #All of this is just printing an image
