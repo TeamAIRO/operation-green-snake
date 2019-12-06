@@ -12,7 +12,6 @@ products = api.query(footprint = "intersects(41.9000, 12.5000)",
                      date = ('20190601', '20190626'),
                      platformname = 'Sentinel-2',
                      processinglevel = 'Level-2A',
-                     cloudcoverpercentage = (0,10)
                     )
 print(products)
     
