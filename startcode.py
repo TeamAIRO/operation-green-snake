@@ -3,8 +3,6 @@ import cv2
 import sys
 import numpy as np
 from sentinelsat import SentinelAPI
-import geopandas
-import shapely.geometry
 
 user = 'teamairo' 
 password = 'a1r0-2016' 
@@ -18,10 +16,9 @@ products = api.query(footprint,
                      cloudcoverpercentage = (0,10)
                     )
 
-products_gdf = api.to_geodataframe(products)
-products_gdf_sorted = products_gdf.sort_values(['cloudcoverpercentage'], ascending=[True])
+products_sorted = products.sort_values(['cloudcoverpercentage'], ascending=[True])
 
-print(products_gdf_sorted)
+print(products)
     
 if len(sys.argv)!=2:                  ## Check for error in usage syntax
     print("Usage : python display_image.py <image_file>")
