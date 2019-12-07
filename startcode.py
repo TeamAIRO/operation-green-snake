@@ -56,7 +56,7 @@ with rio.open('RG.tiff','w',driver='Gtiff', width=b4.width, height=b4.height,
 """
 
 print “Content-Type: text/plain;charset=utf-8”
-imagename = input("image name:")
+imagename = sys.argv[1]
 image = cv2.imread(imagename,cv2.IMREAD_COLOR)  ## Read image file
     
 
