@@ -79,19 +79,20 @@ for (lower, upper) in boundaries:
 	# find the colors within the specified boundaries and apply
 	# the mask
 	mask = cv2.inRange(image, lower, upper)
-	nPixels = np.count_nonzero(mask == 0)
-	count = mask.size
-	percentage = nPixels/count
-	if percentage > 0.5:
-		print("This is suitable for trees")
-	
-	print(percentage)
 	output = cv2.bitwise_and(image, image, mask = mask)
         
 	
 	# show the images
 	cv2.imshow("images", np.hstack([image, output]))
 	cv2.waitKey(0)
+	
+nPixels = np.count_nonzero(mask == 0)
+count = mask.size
+percentage = nPixels/count
+if percentage > 0.5:
+	print("This is suitable for trees")
+	
+print(percentage)
 		
 	
 	
