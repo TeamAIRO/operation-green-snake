@@ -83,9 +83,34 @@ for (lower, upper) in boundaries:
 	cv2.imshow("images", np.hstack([image, output]))
 	cv2.waitKey(0)
 	
+boundaries2 = [
+	([27,0, 98], [252, 229, 210])
+]
+
+for (lower, upper) in boundaries2:
+	# create NumPy arrays from the boundaries
+	lower2 = np.array(lower, dtype = "uint8")
+	upper2 = np.array(upper, dtype = "uint8")
+ 
+	# find the colors within the specified boundaries and apply
+	# the mask
+	mask2 = cv2.inRange(image, lower2, upper2)
+	output2 = cv2.bitwise_and(image, image, mask2 = mask2)
+        
+	
+	# show the images
+	cv2.imshow("images", np.hstack([image, output]))
+	cv2.waitKey(0)
+	
 nPixels = np.count_nonzero(mask == 0)
 count = mask.size
 percentage = nPixels/count
+
+nPixels2 = np.count_nonzero(mask2 == 0)
+count2 = mask2.size
+percentage2 = nPixels2/count2
+
+
 if percentage < 0.9:
 	print("This is suitable for trees")
 	
