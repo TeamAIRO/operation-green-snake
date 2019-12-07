@@ -4,8 +4,7 @@ import sys
 import numpy as np
 from sentinelsat import SentinelAPI
 from zipfile import ZipFile
-import os
-import fnmatch
+import glob
 
 #authenticates with the website
 user = 'teamairo' 
@@ -37,15 +36,7 @@ title = products_df['title'].iloc[0]
 with ZipFile(title + '.zip', 'r') as zipObj:
    zipObj.extractall()
 
-def find(pattern, path):
-    result = []
-    for root, dirs, files in os.walk(path):
-        for name in files:
-            if fnmatch.fnmatch(name, pattern):
-                result.append(os.path.join(root, name))
-    return result
-  
-print(find('*.jp2', 'C:\Users\desai\Desktop\operation-green-snake'))
+print(glob.glob('**/*.jp2', recursive=True))
     
 #All of this is just printing an image
 if len(sys.argv)!=2:                  ## Check for error in usage syntax
