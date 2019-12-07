@@ -45,7 +45,7 @@ def find(pattern, path):
                 result.append(os.path.join(root, name))
     return result
   
-print(find('*.jp2', '/path/to/dir'))
+print(find('*.jp2', 'C:\Users\desai\Desktop\operation-green-snake'))
     
 #All of this is just printing an image
 if len(sys.argv)!=2:                  ## Check for error in usage syntax
