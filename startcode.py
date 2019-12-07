@@ -65,7 +65,7 @@ image = cv2.imread(imagename,cv2.IMREAD_COLOR)  ## Read image file
     
 
 boundaries = [
-	([27,128, 98], [157, 229, 210])
+	([27,0, 98], [252, 229, 210])
 ]
 
 for (lower, upper) in boundaries:
