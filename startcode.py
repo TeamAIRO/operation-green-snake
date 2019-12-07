@@ -5,6 +5,7 @@ import numpy as np
 from sentinelsat import SentinelAPI
 from zipfile import ZipFile
 import glob
+import rasterio
 
 #authenticates with the website
 user = 'teamairo' 
@@ -36,7 +37,19 @@ title = products_df['title'].iloc[0]
 with ZipFile(title + '.zip', 'r') as zipObj:
    zipObj.extractall()
 
-print(glob.glob('**/*.jp2', recursive=True))
+#Finding all the files that we can combine into an image
+list = glob.glob('**/*.jp2', recursive=True)
+
+b2 = rio.open(list[1])
+b3 = rio.open(list[2])
+b4 = rio.open(list[3])
+
+with rio.open('RGB.tiff','w',driver='Gtiff', width=b4.width, height=b4.height, 
+              count=3,crs=b4.crs,transform=b4.transform, dtype=b4.dtypes[0]) as rgb:
+    rgb.write(b2.read(1),1) 
+    rgb.write(b3.read(1),2) 
+    rgb.write(b4.read(1),3) 
+    rgb.close()
     
 #All of this is just printing an image
 if len(sys.argv)!=2:                  ## Check for error in usage syntax
