@@ -84,7 +84,7 @@ for (lower, upper) in boundaries:
 	cv2.waitKey(0)
 	
 boundaries2 = [
-	([69, 9, 15], [104,184, 112])
+	([5, 64, 37], [84,165, 127])
 ]
 
 for (lower, upper) in boundaries2:
@@ -103,7 +103,7 @@ for (lower, upper) in boundaries2:
 	cv2.waitKey(0)
 	
 boundaries3 = [
-	([128, 0, 0], [255, 154, 152])
+	([5, 64, 37], [128, 255, 196])
 ]
 
 for (lower, upper) in boundaries3:
