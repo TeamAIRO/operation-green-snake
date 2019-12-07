@@ -65,10 +65,7 @@ image = cv2.imread(imagename,cv2.IMREAD_COLOR)  ## Read image file
     
 
 boundaries = [
-	([27,128, 98], [157, 229, 210]),
-	([86, 31, 4], [220, 88, 50]),
-	([25, 146, 190], [62, 174, 250]),
-	([103, 86, 65], [145, 133, 128])
+	([27,128, 98], [157, 229, 210])
 ]
 
 for (lower, upper) in boundaries:
@@ -89,7 +86,7 @@ for (lower, upper) in boundaries:
 nPixels = np.count_nonzero(mask == 0)
 count = mask.size
 percentage = nPixels/count
-if percentage > 0.5:
+if percentage < 0.5:
 	print("This is suitable for trees")
 	
 print(percentage)
