@@ -115,6 +115,7 @@ if percentage < 0.9 and percentage2 > 0.3:
 	print("This is suitable for trees")
 	
 print(percentage)
+print(percentage2)
 		
 	
 	
