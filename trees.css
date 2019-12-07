@@ -19,6 +19,10 @@ body {
 input {
   text-align: center:
 }
+p {
+  font-size:25px;
+  font-family: Verdana;
+}
 #h2 {
   position: absolute;
   top: 8px;
