@@ -79,8 +79,8 @@ for (lower, upper) in boundaries:
 	# find the colors within the specified boundaries and apply
 	# the mask
 	mask = cv2.inRange(image, lower, upper)
-	nPixels = mask.total()
-	count = cv.countNonZero(mask)
+	nPixels = np.count_nonzero(mask == 0)
+	count = mask.size
 	percentage = count/nPixels
 	print(percentage)
 	output = cv2.bitwise_and(image, image, mask = mask)
