@@ -57,8 +57,7 @@ with rio.open('RG.tiff','w',driver='Gtiff', width=b4.width, height=b4.height,
     rgb.write(b2.read(1),1) 
     rgb.close()
     
-rio calc "(asarray (take a 1) (take a 2) (take a 3))" --co compress=lzw --co tiled=true --co blockxsize=256 --co blockysize=256 --name a=RGB.tiff RGB255.tif
-rio edit-info --nodata 0 RGB255.tiff
+
     
 #All of this is just printing an image
 img = cv2.imread('RGB.tiff',cv2.IMREAD_COLOR)  ## Read image file
