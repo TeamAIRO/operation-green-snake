@@ -3,14 +3,19 @@ import cv2
 import sys
 import numpy as np
 from sentinelsat import SentinelAPI
+from zipfile import ZipFile
 
 #authenticates with the website
 user = 'teamairo' 
 password = 'a1r0-2016' 
 api = SentinelAPI(user, password, 'https://scihub.copernicus.eu/dhus')
 
+#Gets a longitude and latitude from the user
+long = input("Type in a longitude: ")
+lat = input("Type in a latitude: ")
+
 #Gets a point, and asks the website for all the images of that point taken from a certain range of time
-footprint = 'POINT (41.9 12.5)'
+footprint = 'POINT (' + long + " " + lat ")"
 products = api.query(footprint,
                      date = ('20190601', '20190626'),
                      platformname = 'Sentinel-2',
@@ -21,6 +26,10 @@ products = api.query(footprint,
 
 product = list(products.keys())[0]
 api.download(product)
+
+#extracts eveything from the zipfile downloaded
+with ZipFile('sampleDir.zip', 'r') as zipObj:
+   zipObj.extractall()
 
     
 #All of this is just printing an image
