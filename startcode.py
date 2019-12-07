@@ -84,7 +84,7 @@ for (lower, upper) in boundaries:
 	cv2.waitKey(0)
 	
 boundaries2 = [
-	([32, 0, 4], [184,104, 112])
+	([9, 69, 15], [104,184, 112])
 ]
 
 for (lower, upper) in boundaries2:
@@ -103,7 +103,7 @@ for (lower, upper) in boundaries2:
 	cv2.waitKey(0)
 	
 boundaries3 = [
-	([141, 0, 0], [255, 80, 70])
+	([0, 141, 0], [80, 255, 70])
 ]
 
 for (lower, upper) in boundaries3:
@@ -133,7 +133,7 @@ nPixels3 = np.count_nonzero(mask3 == 0)
 count3 = mask3.size
 percentage3 = nPixels3/count3
 
-if percentage < 0.9 and percentage2 < 0.6 and percentage3 > 0.1:
+if percentage < 0.9 and percentage2 < 0.6 and percentage3 < 0.9:
 	print("This is suitable for trees")
 	
 print(percentage)
