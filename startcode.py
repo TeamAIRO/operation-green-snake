@@ -8,9 +8,9 @@ import glob
 import rasterio as rio
 
 #authenticates with the website
-user = 'teamairo' 
-password = 'a1r0-2016' 
-api = SentinelAPI(user, password, 'https://scihub.copernicus.eu/dhus')
+alpha = 'teamairo' 
+beta = 'a1r0-2016' 
+api = SentinelAPI(alpha, beta, 'https://scihub.copernicus.eu/dhus')
 
 #Gets a longitude and latitude from the user
 long = input("Type in a longitude: ")
