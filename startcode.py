@@ -27,8 +27,14 @@ products = api.query(footprint,
 product = list(products.keys())[0]
 api.download(product)
 
-#extracts eveything from the zipfile downloaded
-with ZipFile('sampleDir.zip', 'r') as zipObj:
+
+products_df = api.to_dataframe(products)
+title = products_df['title'].iloc[0]
+
+
+
+#extracts everything from the zipfile downloaded
+with ZipFile(title + '.zip', 'r') as zipObj:
    zipObj.extractall()
 
     
