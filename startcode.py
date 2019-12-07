@@ -5,7 +5,7 @@ import numpy as np
 from sentinelsat import SentinelAPI
 from zipfile import ZipFile
 import glob
-import rasterio
+import rasterio as rio
 
 #authenticates with the website
 user = 'teamairo' 
