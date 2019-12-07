@@ -17,15 +17,7 @@ api = SentinelAPI(alpha, beta, 'https://scihub.copernicus.eu/dhus')
 
 #Gets a longitude and latitude from the user
 
-nReserve = gpd.read_file('NReserve/NaturalReserve_Polygon.shp')
-
-m = folium.Map([41.7023292727353, 12.34697305914639], zoom_start=12)
-folium.GeoJson(nReserve).add_to(m)
-
-#Gets a point, and asks the website for all the images of that point taken from a certain range of time
-footprint = None
-for i in nReserve['geometry']:
-    footprint = i
+footprint = geojson_to_wkt(read_geojson('swiss_zip.geojson'))
     
 products = api.query(footprint,
                      date = ('20190601', '20190626'),
