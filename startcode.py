@@ -17,7 +17,7 @@ long = input("Type in a longitude: ")
 lat = input("Type in a latitude: ")
 
 #Gets a point, and asks the website for all the images of that point taken from a certain range of time
-footprint = 'POINT (' + long + " " + lat + ")"
+footprint = 'POLYGON ((34.322010 0.401648,36.540989 0.876987,36.884121 -0.747357,34.664474 -1.227940,34.322010 0.401648))'
 products = api.query(footprint,
                      date = ('20190601', '20190626'),
                      platformname = 'Sentinel-2',
