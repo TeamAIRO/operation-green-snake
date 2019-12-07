@@ -2,7 +2,7 @@
 import cv2
 import sys
 import numpy as np
-from sentinelsat import SentinelAPI
+from sentinelsat import SentinelAPI, read_geojson, geojson_to_wkt
 from zipfile import ZipFile
 import glob
 import rasterio as rio
