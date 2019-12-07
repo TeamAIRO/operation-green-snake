@@ -133,7 +133,10 @@ nPixels3 = np.count_nonzero(mask3 == 0)
 count3 = mask3.size
 percentage3 = nPixels3/count3
 
-if percentage < 0.9 and percentage2 > 0.2 and percentage3 > 0.03:
+percentage = 100 - percentage
+percentage2 = 100 - percentage2
+percentage3 = 100 - percentage3
+if percentage > 0.1 and percentage2 < 0.8 and percentage3 > 0.03:
 	print("This is suitable for trees")
 	
 print(percentage)
