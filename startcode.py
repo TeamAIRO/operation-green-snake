@@ -43,13 +43,18 @@ list = glob.glob('**/*.jp2', recursive=True)
 b2 = rio.open(list[1])
 b3 = rio.open(list[2])
 b4 = rio.open(list[3])
-print(list[1])
+print(list[2])
 
 with rio.open('RGB.tiff','w',driver='Gtiff', width=b4.width, height=b4.height, 
               count=3,crs=b4.crs,transform=b4.transform, dtype=b4.dtypes[0]) as rgb:
     rgb.write(b2.read(1),1) 
     rgb.write(b3.read(1),2) 
     rgb.write(b4.read(1),3) 
+    rgb.close()
+    
+with rio.open('RG.tiff','w',driver='Gtiff', width=b4.width, height=b4.height, 
+              count=3,crs=b4.crs,transform=b4.transform, dtype=b4.dtypes[0]) as rgb:
+    rgb.write(b2.read(1),1) 
     rgb.close()
     
 #All of this is just printing an image
