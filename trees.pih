@@ -4,9 +4,9 @@
       <title>Project Green</title>
       <link rel="stylesheet" href="trees.css">
   <body>
-    <h1 id='h1'>Project Green</h1>
+    <a href="trees.html"><h1 id='h1'>Project Green</h1></a>
     <img src="logo.png">
-    <h1 id="h2">About</h1>
+    <a href="about.html"><h1 id="h2">About</h1></a>
     <form>
       <fieldset>
         <legend>Input an Image and Coordinates</legend>
@@ -23,9 +23,6 @@
         <p>
       </fieldset>
     </form>
-   <?PHP
-   echo shell_exec("py startcode.py 'myText'");
-   ?>
-
+   
   </body>
 </html>
