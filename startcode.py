@@ -81,7 +81,10 @@ for (lower, upper) in boundaries:
 	mask = cv2.inRange(image, lower, upper)
 	nPixels = np.count_nonzero(mask == 0)
 	count = mask.size
-	percentage = count/nPixels
+	percentage = nPixels/count
+	if percentage > 0.5:
+		print("This is suitable for trees")
+	
 	print(percentage)
 	output = cv2.bitwise_and(image, image, mask = mask)
         
@@ -89,8 +92,6 @@ for (lower, upper) in boundaries:
 	# show the images
 	cv2.imshow("images", np.hstack([image, output]))
 	cv2.waitKey(0)
-	if percentage > 0.5:
-		print("This is suitable for trees")
 		
 	
 	
