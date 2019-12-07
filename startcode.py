@@ -95,7 +95,7 @@ for (lower, upper) in boundaries2:
 	# find the colors within the specified boundaries and apply
 	# the mask
 	mask2 = cv2.inRange(image, lower2, upper2)
-	output2 = cv2.bitwise_and(image, image, mask2 = mask2)
+	output2 = cv2.bitwise_and(image, image, mask = mask2)
         
 	
 	# show the images
