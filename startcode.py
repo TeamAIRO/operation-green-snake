@@ -11,7 +11,7 @@ import geopandas as gpd
 from shapely.geometry import MultiPolygon, Polygon
 
 #authenticates with the website
-alpha = 'teamairo' 
+"""alpha = 'teamairo' 
 beta = 'a1r0-2016' 
 api = SentinelAPI(alpha, beta, 'https://scihub.copernicus.eu/dhus')
 
@@ -58,28 +58,29 @@ with rio.open('RG.tiff','w',driver='Gtiff', width=b4.width, height=b4.height,
     rgb.write(b2.read(1),1) 
     rgb.close()
     
+"""
 
+imagename = input("image name:")
+image = cv2.imread(imagename,cv2.IMREAD_COLOR)  ## Read image file
     
-#All of this is just printing an image
-img = cv2.imread('RGB.tiff',cv2.IMREAD_COLOR)  ## Read image file
-    
-try:
-    if (img.any() == None):                      ## Check for invalid input
-        print("Could not open or find the image")
-except AttributeError:
-    if (img == None):                      ## Check for invalid input
-        print("Could not open or find the image")
-    else:
-        cv2.namedWindow('Display Window')        ## create window for display
-        cv2.imshow('Display Window',img)         ## Show image in the window
-        print ("size of image: ",img.shape)        ## print size of image
-        cv2.waitKey(0)                           ## Wait for keystroke
-        cv2.destroyAllWindows()
-else:
-    if (img.any() == None):                      ## Check for invalid input
-        print("Could not open or find the image")
-    else:
-        cv2.namedWindow('Display Window')        ## create window for display
-        cv2.imshow('Display Window',img)         ## Show image in the window        ## print size of image
-        cv2.waitKey(0)                           ## Wait for keystroke
-        cv2.destroyAllWindows()                  ## Destroy all windows
+
+boundaries = [
+	([17, 15, 100], [50, 56, 200]),
+	([86, 31, 4], [220, 88, 50]),
+	([25, 146, 190], [62, 174, 250]),
+	([103, 86, 65], [145, 133, 128])
+]
+
+for (lower, upper) in boundaries:
+	# create NumPy arrays from the boundaries
+	lower = np.array(lower, dtype = "uint8")
+	upper = np.array(upper, dtype = "uint8")
+ 
+	# find the colors within the specified boundaries and apply
+	# the mask
+	mask = cv2.inRange(image, lower, upper)
+	output = cv2.bitwise_and(image, image, mask = mask)
+ 
+	# show the images
+	cv2.imshow("images", np.hstack([image, output]))
+	cv2.waitKey(0)
