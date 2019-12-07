@@ -22,7 +22,7 @@ products = api.query(footprint,
                      date = ('20190601', '20190626'),
                      platformname = 'Sentinel-2',
                      processinglevel = 'Level-2A',
-                     cloudcoverpercentage = (0,10)
+                     cloudcoverpercentage = (0,40)
                     )
 
 
