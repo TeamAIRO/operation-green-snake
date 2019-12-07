@@ -6,6 +6,9 @@ from sentinelsat import SentinelAPI
 from zipfile import ZipFile
 import glob
 import rasterio as rio
+import folium
+import geopandas as gpd
+from shapely.geometry import MultiPolygon, Polygon
 
 #authenticates with the website
 alpha = 'teamairo' 
@@ -13,11 +16,17 @@ beta = 'a1r0-2016'
 api = SentinelAPI(alpha, beta, 'https://scihub.copernicus.eu/dhus')
 
 #Gets a longitude and latitude from the user
-long = input("Type in a longitude: ")
-lat = input("Type in a latitude: ")
+
+nReserve = gpd.read_file('NReserve/NaturalReserve_Polygon.shp')
+
+m = folium.Map([41.7023292727353, 12.34697305914639], zoom_start=12)
+folium.GeoJson(nReserve).add_to(m)
 
 #Gets a point, and asks the website for all the images of that point taken from a certain range of time
-footprint = "POLYGON((-4.53 29.85, 26.75 29.85, 26.75 46.80,-4.53 46.80,-4.53 29.85))"
+footprint = None
+for i in nReserve['geometry']:
+    footprint = i
+    
 products = api.query(footprint,
                      date = ('20190601', '20190626'),
                      platformname = 'Sentinel-2',
