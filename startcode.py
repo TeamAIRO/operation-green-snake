@@ -111,7 +111,7 @@ count2 = mask2.size
 percentage2 = nPixels2/count2
 
 
-if percentage < 0.9 and percentage2 < 0.3:
+if percentage < 0.9 and percentage2 < 0.8:
 	print("This is suitable for trees")
 	
 print(percentage)
