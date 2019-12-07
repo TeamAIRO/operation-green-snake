@@ -98,6 +98,25 @@ for (lower, upper) in boundaries2:
 	cv2.imshow("images", np.hstack([image, output]))
 	cv2.waitKey(0)
 	
+boundaries3 = [
+	([32, 0, 4], [184,104, 112])
+]
+
+for (lower, upper) in boundaries3:
+	# create NumPy arrays from the boundaries
+	lower3 = np.array(lower, dtype = "uint8")
+	upper3 = np.array(upper, dtype = "uint8")
+ 
+	# find the colors within the specified boundaries and apply
+	# the mask
+	mask3 = cv2.inRange(image, lower3, upper3)
+	output3 = cv2.bitwise_and(image, image, mask = mask3)
+        
+	
+	# show the images
+	cv2.imshow("images", np.hstack([image, output]))
+	cv2.waitKey(0)
+	
 nPixels = np.count_nonzero(mask == 0)
 count = mask.size
 percentage = nPixels/count
@@ -112,3 +131,4 @@ if percentage < 0.9 and percentage2 < 0.6:
 	
 print(percentage)
 print(percentage2)
+print(percentage3)
