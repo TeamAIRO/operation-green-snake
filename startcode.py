@@ -86,7 +86,7 @@ for (lower, upper) in boundaries:
 nPixels = np.count_nonzero(mask == 0)
 count = mask.size
 percentage = nPixels/count
-if percentage < 0.5:
+if percentage < 0.9:
 	print("This is suitable for trees")
 	
 print(percentage)
