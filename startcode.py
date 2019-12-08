@@ -129,3 +129,4 @@ percentage3 = nPixels3/count3
 if percentage < 0.9 and percentage2 > 0.6:
 	print("This is suitable for trees")
 
+print(percentage2)
