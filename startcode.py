@@ -9,10 +9,7 @@ import rasterio as rio
 import folium
 import geopandas as gpd
 from shapely.geometry import MultiPolygon, Polygon
-import cgitb
 
-
-cgitb.enable()
 
 #authenticates with the website
 """alpha = 'teamairo' 
@@ -55,8 +52,7 @@ with rio.open('RG.tiff','w',driver='Gtiff', width=b4.width, height=b4.height,
     
 """
 
-print “Content-Type: text/plain;charset=utf-8”
-imagename = sys.argv[1]
+imagename = input("Add an image here: ")
 image = cv2.imread(imagename,cv2.IMREAD_COLOR)  ## Read image file
     
 
