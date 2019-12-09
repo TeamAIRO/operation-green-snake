@@ -1,14 +1,14 @@
 
 import cv2
-#import sys
+import sys
 import numpy as np
-#from sentinelsat import SentinelAPI, read_geojson, geojson_to_wkt
-#from zipfile import ZipFile
-#import glob
-#import rasterio as rio
-#import folium
-#import geopandas as gpd
-#from shapely.geometry import MultiPolygon, Polygon
+from sentinelsat import SentinelAPI, read_geojson, geojson_to_wkt
+from zipfile import ZipFile
+import glob
+import rasterio as rio
+import folium
+import geopandas as gpd
+from shapely.geometry import MultiPolygon, Polygon
 
 
 #authenticates with the website
