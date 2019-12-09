@@ -91,7 +91,7 @@ for (lower, upper) in boundaries2:
         
 	
 	# show the images
-	cv2.imshow("images", np.hstack([image, output]))
+	cv2.imshow("images", np.hstack([image, output2]))
 	cv2.waitKey(0)
 	
 boundaries3 = [
@@ -110,7 +110,7 @@ for (lower, upper) in boundaries3:
         
 	
 	# show the images
-	cv2.imshow("images", np.hstack([image, output]))
+	cv2.imshow("images", np.hstack([image, output3]))
 	cv2.waitKey(0)
 	
 nPixels = np.count_nonzero(mask == 0)
@@ -129,4 +129,3 @@ percentage3 = nPixels3/count3
 if percentage < 0.9 and percentage2 > 0.7:
 	print("This is suitable for trees")
 
-print(percentage2)
